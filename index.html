@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <button onClick="clearScreen()">Clear Console</button>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // Regular
+      console.log("Hello World");
+      // Interpolated
+      dogs.forEach((dogs, i) => {
+        console.log(`My ${i + 1} pet name is ${dogs.name}`);
+      });
+
+      // Styled
+      console.log(
+        "%c The most durable thing in writing is style, and style is the most valuable investment a writer can make with his time",
+        "font-size:150%;background-color:#E8BDBA;border-radius:2rem;font-family:Optima;color: #800000;border: 2px red solid;"
+      );
+
+      // warning!
+      console.warn("Start Learning.");
+
+      // Error :|
+      console.error("Learning Stopped.");
+      // Info
+      console.info(
+        "I know it's not easy for you, but there's bound to be a learning curve."
+      );
+      // Testing
+      console.assert(
+        "2" === 2,
+        "You don't even know assigning difference between string and number"
+      );
+
+      // clearing
+      function clearScreen() {
+        const b = document.querySelector("button");
+        console.clear();
+      }
+
+      // Viewing DOM Elements
+      console.table(dogs);
+      console.dir(dogs);
+      // Grouping together
+      dogs.forEach((dogs, i) => {
+        console.groupCollapsed(`${dogs.name}`);
+        console.log(`This is ${dogs.name}`);
+        console.log(`${dogs.name} is ${dogs.age} years old `);
+        console.log(`${dogs.name} is my pet no: ${i + 1}`);
+        console.groupEnd(`${dogs.name}`);
+      });
+
+      // counting
+      console.count("Haris");
+      console.count("Haris");
+      console.count("Usman");
+      console.count("Haris");
+      console.count("Usman");
+      console.count("Usman");
+      console.count("Haris");
+      console.count("Haris");
+      console.count("Usman");
+      console.count("Haris");
+      console.count("Usman");
+
+      // timing
+      console.time("time of fetching");
+      fetch("https://api.github.com/user/wesbos")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("time of fetching");
+          console.log(data);
+        });
+    </script>
+    <style>
+      /* CSS */
+      button {
+        background-color: #ea4c89;
+        border-radius: 8px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+          sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        height: 40px;
+        line-height: 20px;
+        list-style: none;
+        margin: 0;
+        outline: none;
+        padding: 10px 16px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: color 100ms;
+        vertical-align: baseline;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 10rem;
+      }
+
+      button:hover,
+      button:focus {
+        background-color: #f082ac;
+      }
+
+      p {
+        color: #4c4a37;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 18px;
+        line-height: 32px;
+        margin: 0 0 24px;
+        background-color: aliceblue;
+        height: 6rem;
+        margin: 2rem;
+        padding: 2rem;
+      }
+    </style>
+  </body>
+</html>
+
+
